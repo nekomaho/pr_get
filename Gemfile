@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem "github_api"
-gem "pry"
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# Specify your gem's dependencies in pr_get.gemspec
+gemspec
