@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "pr_get"
+require 'pry'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +12,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  Dir.glob(File.join(File.dirname(__FILE__), "../lib/pr_get/**/*.rb")).each { |f| require f }
 end
