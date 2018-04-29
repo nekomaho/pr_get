@@ -15,7 +15,7 @@ RSpec.describe 'SearchItem' do
         [ stub_item_result.new('5', 'http://hoge', 'title') ]
       )
 
-      expect(SearchItem.new(github_mock,'hoge').exec).to eq expect_items
+      expect(PrGet::SearchItem.new(github_mock,'hoge').exec).to eq expect_items
     end
   end
 end

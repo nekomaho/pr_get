@@ -1,7 +1,7 @@
 RSpec.describe 'ItemReuslt' do
   let(:item_dummy) { Struct.new(:number, :html_url, :title) }
   let(:item) { item_dummy.new('5', 'http:hogehoge', 'title') }
-  let(:item_result) { ItemResult.new(item) }
+  let(:item_result) { PrGet::ItemResult.new(item) }
 
   describe '#number' do
     subject(:number) { item_result.number }
