@@ -1,8 +1,5 @@
 # PrGet
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pr_get`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+pr_get is Github pull request searcher from commit hash.
 
 ## Installation
 
@@ -21,8 +18,23 @@ Or install it yourself as:
     $ gem install pr_get
 
 ## Usage
+To start using the gem, you can requests directly on PrGet namespace.
+You need Github oauth token which is Personal access token on Github.
+And it need accept "repo" control.
 
-TODO: Write usage instructions here
+```ruby
+pr_get = PrGet.new user: 'SEARCH_USERNAME', repo: 'SEARCH_REPO', oauth_token: 'PRIVATE_OAUTH_TOKEN'
+```
+
+Then, search pull request from commit hash, You can get pull request number, tile and urls include search commit hash.
+
+```ruby
+pr_get.search(sha: 'SEARCH_COMMIT_HASH').each do |result|
+  puts "tile:#{result.tile}, url:#{result.url}"
+end
+# => "title: pull request tile1, url: https://github.com/search_username/pull/1"
+# => "title: pull request tile2, url: https://github.com/search_username/pull/2"
+```
 
 ## Development
 
@@ -32,7 +44,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/pr_get. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/nekomaho/pr_get. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -40,4 +52,6 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the PrGet project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pr_get/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the PrGet project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/nekomaho/pr_get/blob/master/CODE_OF_CONDUCT.md).
+
+
